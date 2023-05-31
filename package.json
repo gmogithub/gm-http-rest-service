@@ -1,0 +1,16 @@
+{
+  "name": "gm-http-rest-service",
+  "version": "1.0.0",
+  "description": "permet de faire des requette http",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": ["lib/**/*"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
