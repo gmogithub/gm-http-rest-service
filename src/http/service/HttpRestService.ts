@@ -54,6 +54,34 @@ export class HttpRestService {
     this.middlewareAfter = middlewareList;
   }
 
+  public get<T = any>(api: string): Promise<T> {
+    return this.send<T>(api, HttpActionEnum.GET);
+  }
+
+  public post<T = any>(api: string, body?: any): Promise<T> {
+    return this.send<T>(api, HttpActionEnum.POST, body);
+  }
+
+  public put<T = any>(api: string, body?: any): Promise<T> {
+    return this.send<T>(api, HttpActionEnum.PUT, body);
+  }
+
+  public delete<T = any>(api: string, body?: any): Promise<T> {
+    return this.send<T>(api, HttpActionEnum.DELETE, body);
+  }
+
+  public upload<T = any>(api: string, body?: any): Promise<T> {
+    return this.send<T>(api, HttpActionEnum.UPLOAD, body);
+  }
+
+  public download<T = any>(api: string): Promise<T> {
+    return this.send<T>(api, HttpActionEnum.DOWNLOAD);
+  }
+
+  public load<T = any>(api: string): Promise<T> {
+    return this.send<T>(api, HttpActionEnum.LOAD);
+  }
+
   private getHeader(action: HttpActionEnum): Headers {
     if (this.headers !== null) {
       return this.headers;
