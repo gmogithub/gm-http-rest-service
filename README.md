@@ -4,7 +4,7 @@ Gm http rest service is Http client.
 
 ### Exemple with builder
 
-```` js
+```` ts
 
 const tokenTest: string|undefined = "adOpbGciOiJI.aukjkjiOiI3NTU3IiwiaWF0IjoxNjgE5Njg3.Q_gmkwevbCfwQWym4PjCo..."
 
@@ -48,5 +48,19 @@ function http() {
     .withMiddlewareAfter(middlewaresAfter) // launch middlewares after send request http (3)
     .build();
 }
+
+
+interface TodoPayload {
+  userId: number,
+  id: number,
+  title: string,
+  completed: boolean
+}
+
+function getTodos() {
+    return http().get<TodoPayload[]>("/todos"));
+}
+
+const todos = getTodos();
 
 ```
