@@ -1,4 +1,5 @@
 import { HttpMiddleware } from "./HttpRestService.type";
+import { ErrorResponse } from "../response/ErrorResponse";
 export enum HttpActionEnum {
   GET = "GET",
   POST = "POST",
@@ -141,7 +142,7 @@ export class HttpRestService {
       resJson = await this.launchMiddleware(this.middlewareSuccess, resJson, api, method, body);
     } else {
       // throw new ApiResponseError(apiResponse, resJson.message);
-      throw new Error();
+      throw new ErrorResponse(resJson);
     }
     return resJson;
   }
