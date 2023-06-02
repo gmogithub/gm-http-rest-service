@@ -51,7 +51,7 @@ function http() {
 
 
 interface TodoPayload {
-  userId: number,
+  userId: number|null,
   id: number,
   title: string,
   completed: boolean
@@ -59,6 +59,18 @@ interface TodoPayload {
 
 function getTodos() {
     return http().get<TodoPayload[]>("/todos"));
+}
+
+function addTodos(todo: TodoPayload) {
+    return http().post<boolean>("/todos", todo));
+}
+
+function updateTodos(id: number, todo: TodoPayload) {
+    return http().put<boolean>(`/todos/${id}`, todo));
+}
+
+function deleteTodos(id: number) {
+    return http().delete<boolean>(`/todos/${id}`));
 }
 
 const todos = getTodos();
