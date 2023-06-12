@@ -4,9 +4,4 @@ export {
   HttpRestServiceBuilder
 }
 
-function http() {
- return new HttpRestServiceBuilder()
-    .withBaseUrl('https://jsonplaceholder.typicode.com')
-   .build()
-}
 

@@ -126,6 +126,7 @@ export class HttpRestService {
     return fetch(url, init)
       .then((res) => this.checkStatus(res, api, method, body))
       .catch(async (error) => {
+        console.log(error);
         return await this.launchMiddleware<T>(this.middlewareError, error.response, error, api, method, body);
       })
       .finally(async () => {
