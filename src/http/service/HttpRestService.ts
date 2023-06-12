@@ -125,9 +125,6 @@ export class HttpRestService {
 
     return fetch(url, init)
       .then((res) => this.checkStatus(res, api, method, body))
-      .catch(async (error) => {
-        return await this.launchMiddleware<T>(this.middlewareError, error.response, error, api, method, body);
-      })
       .finally(async () => {
         return await this.launchMiddleware(this.middlewareAfter, null, api, method, body)
       });
@@ -141,8 +138,7 @@ export class HttpRestService {
     if (response.ok) {
       resJson = await this.launchMiddleware(this.middlewareSuccess, resJson, api, method, body);
     } else {
-      // throw new ApiResponseError(apiResponse, resJson.message);
-      throw new ErrorResponse(resJson);
+       resJson = await this.launchMiddleware(this.middlewareError, resJson, api, method, body);
     }
     return resJson;
   }
