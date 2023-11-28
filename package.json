@@ -1,6 +1,6 @@
 {
   "name": "gm-http-rest-service",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "permet de faire des requette http",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
