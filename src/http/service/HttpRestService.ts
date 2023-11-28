@@ -1,4 +1,4 @@
-import { HttpMiddleware } from "./HttpRestService.type";
+import { HttpMiddleware, HttpRestCacheOptions, HttpRestCacheRequest } from "./HttpRestService.type";
 import { ErrorResponse } from "../response/ErrorResponse";
 import { sha256 } from "../../utils/utils";
 import { StorageManager } from "../../tools/StorageManager";
@@ -28,16 +28,6 @@ export enum HttpCacheDuration {
   ONE_HOUR = 3600000,
   TWO_HOURS = 7200000,
   ONE_DAY = 86400000
-}
-
-interface HttpRestCacheOptions {
-  duration: number // ms
-  type?: "session" | "local" // default local
-}
-
-interface HttpRestCacheRequest<P> {
-  time: number,
-  payload: P
 }
 
 export class HttpRestService {
