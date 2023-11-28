@@ -1,12 +1,7 @@
-import {HttpRestServiceBuilder} from "./http/builder/HttpRestServiceBuilder";
+import { HttpRestServiceBuilder } from "./http/builder/HttpRestServiceBuilder";
+import { HttpRestCacheOptions } from "./http/service/HttpRestService.type";
 
 export {
-  HttpRestServiceBuilder
-}
-
-function http() {
- return new HttpRestServiceBuilder()
-    .withBaseUrl('https://jsonplaceholder.typicode.com')
-   .build()
+  HttpRestServiceBuilder, HttpRestCacheOptions
 }
 
