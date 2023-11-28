@@ -1,7 +1,5 @@
-import { HttpRestServiceBuilder } from "./http/builder/HttpRestServiceBuilder";
-import { HttpRestCacheOptions } from "./http/service/HttpRestService.type";
+import {HttpRestServiceBuilder} from "./http/builder/HttpRestServiceBuilder";
 
 export {
-  HttpRestServiceBuilder, HttpRestCacheOptions
+  HttpRestServiceBuilder
 }
-
